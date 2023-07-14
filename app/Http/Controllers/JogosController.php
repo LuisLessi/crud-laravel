@@ -39,5 +39,15 @@ class JogosController extends Controller
         $jogo->update($request->all());
         return redirect()->route('jogos-index');
     }
+
+    public function destroy($id) {
+        $jogo = Jogo::find($id);
+        if ($jogo) {
+            $jogo->delete();
+        }
+        return redirect()->route('jogos-index');
+    }
+    
+    
     
 }
